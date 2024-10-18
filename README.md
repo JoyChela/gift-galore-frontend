@@ -2,10 +2,14 @@
 
 ## Author
 Joy Chelangat
+
 Neema Naledi
+
 Mark Alvin(blu)
+
 Venus Chumba
-Iyiola Ebenezer
+
+Iyiola Ebenezer.
 
 ## Description
 Gift Galore is a full-stack web application designed for an online gift shop. The application allows users to browse, search, and purchase a variety of gifts. The backend is powered by Flask, providing a robust RESTful API, while the frontend is built using React to offer a dynamic and responsive user experience.
@@ -36,7 +40,7 @@ Git (for forking and cloning the repository)
 1. Clone the repository:
    ```bash
    git clone:
-   git@github.com:JoyChela/gift-galore.git
+   git@github.com:JoyChela/gift-galore-frontend.git
 
 ## Getting Started
 1. Set up a virtual environment (recommended):
