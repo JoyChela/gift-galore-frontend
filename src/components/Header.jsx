@@ -8,9 +8,9 @@ const Header = ({ cartItems, toggleCart, gifts, addToCart }) => {
   const [searchVisible, setSearchVisible] = useState(false);
   const [query, setQuery] = useState("");
   const [filteredGifts, setFilteredGifts] = useState([]);
-  const [searchSubmitted, setSearchSubmitted] = useState(false); // Track if search has been submitted
+  const [searchSubmitted, setSearchSubmitted] = useState(false);
   const navigate = useNavigate();
-  const searchRef = useRef(null); // Create a reference for the search bar
+  const searchRef = useRef(null);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -18,19 +18,18 @@ const Header = ({ cartItems, toggleCart, gifts, addToCart }) => {
       gift.name.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredGifts(filtered);
-    setSearchSubmitted(true); // Mark the search as submitted
-    setQuery(""); // Clear the search query
+    setSearchSubmitted(true);
+    setQuery("");
   };
 
   const handleClickOutside = (event) => {
     if (searchRef.current && !searchRef.current.contains(event.target)) {
-      setSearchVisible(false); // Close search if clicked outside
-      setFilteredGifts([]); // Clear filtered gifts when closing the search
-      setSearchSubmitted(false); // Reset search submitted state
+      setSearchVisible(false);
+      setFilteredGifts([]);
+      setSearchSubmitted(false);
     }
   };
 
-  // Effect to handle click outside of the search bar
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -41,7 +40,6 @@ const Header = ({ cartItems, toggleCart, gifts, addToCart }) => {
   return (
     <header className="bg-cyan-600 text-black p-4">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo with gift icon */}
         <div
           className="text-3xl font-bold text-red-600 flex items-center cursor-pointer"
           onClick={() => navigate("/")}
@@ -53,34 +51,32 @@ const Header = ({ cartItems, toggleCart, gifts, addToCart }) => {
           Gift Galore <span className="text-2xl">🎁</span>
         </div>
 
-        {/* Navigation Links */}
         <nav>
           <ul className="flex space-x-8">
             <li>
               <Link
                 to="/"
-                className="flex items-center text-lg hover:text-red-500"
+                className="flex items-center text-xl hover:text-red-500"
               >
-                <Home size={20} className="mr-1" /> Home
+                <Home size={24} className="mr-2" /> Home
               </Link>
             </li>
             <li>
               <Link
                 to="/about"
-                className="flex items-center text-lg hover:text-red-500"
+                className="flex items-center text-xl hover:text-red-500"
               >
-                <Info size={20} className="mr-1" /> About Us
+                <Info size={24} className="mr-2" /> About Us
               </Link>
             </li>
             <li>
               <Link
                 to="/signup"
-                className="flex items-center text-lg hover:text-red-500"
+                className="flex items-center text-xl hover:text-red-500"
               >
-                <UserPlus size={20} className="mr-1" /> Sign Up
+                <UserPlus size={24} className="mr-2" /> Sign Up
               </Link>
             </li>
-            {/* Search Bar Toggle */}
             {searchVisible ? (
               <form
                 onSubmit={handleSearch}
@@ -92,18 +88,18 @@ const Header = ({ cartItems, toggleCart, gifts, addToCart }) => {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search..."
-                  className="p-2 rounded border border-gray-300"
+                  className="p-2 rounded border border-gray-300 text-lg"
                 />
                 <button
                   type="button"
                   onClick={() => setSearchVisible(false)}
-                  className="text-white"
+                  className="text-white text-lg"
                 >
                   Close
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white p-2 rounded"
+                  className="bg-blue-500 text-white p-2 rounded text-lg"
                 >
                   Search
                 </button>
@@ -114,54 +110,52 @@ const Header = ({ cartItems, toggleCart, gifts, addToCart }) => {
                 className="navbar-item"
                 aria-label="Open search"
               >
-                <Search size={20} />
+                <Search size={24} />
               </button>
             )}
           </ul>
         </nav>
 
-        {/* Cart and Profile Section */}
         <div className="flex items-center space-x-4">
           <button
             className="bg-white p-2 rounded flex items-center space-x-1"
             onClick={toggleCart}
             aria-label="Toggle Cart"
           >
-            <FontAwesomeIcon icon={faShoppingCart} className="text-black" />
-            <span className="text-black">{cartItems.length}</span>
+            <FontAwesomeIcon icon={faShoppingCart} className="text-black text-xl" />
+            <span className="text-black text-xl">{cartItems.length}</span>
           </button>
-          <span className="text-black">Cart</span>
+          <span className="text-black text-xl">Cart</span>
           <Link
             to="/profile"
             className="flex items-center bg-white p-2 rounded"
           >
-            <User size={20} className="text-black" />
-            <span className="ml-1 text-black">Profile</span>
+            <User size={24} className="text-black" />
+            <span className="ml-1 text-black text-xl">Profile</span>
           </Link>
         </div>
       </div>
 
-      {/* Search Results Display */}
       {searchVisible && (
         <div className="absolute z-10 bg-white shadow-lg mt-2 p-4 rounded-md w-full">
-          <h2 className="text-lg font-semibold">Search Results:</h2>
+          <h2 className="text-xl font-semibold">Search Results:</h2>
           <ul className="space-y-2">
-            {searchSubmitted && filteredGifts.length > 0 // Check if search has been submitted and gifts are found
+            {searchSubmitted && filteredGifts.length > 0
               ? filteredGifts.map((gift, index) => (
                   <li key={index} className="border-b pb-2">
-                    <h3 className="text-md font-medium">{gift.name}</h3>
-                    <p>{gift.description}</p>
-                    <p className="text-lg font-bold">${gift.price}</p>
+                    <h3 className="text-lg font-medium">{gift.name}</h3>
+                    <p className="text-base">{gift.description}</p>
+                    <p className="text-xl font-bold">${gift.price}</p>
                     <button
-                      onClick={() => addToCart(gift)} // Add gift to cart when clicked
-                      className="bg-blue-500 text-white p-1 rounded"
+                      onClick={() => addToCart(gift)}
+                      className="bg-blue-500 text-white p-2 rounded text-lg"
                     >
                       Add to Cart
                     </button>
                   </li>
                 ))
-              : searchSubmitted && ( // Only show this message if a search was submitted
-                  <li className="text-red-500">No gifts found</li> // Display message when no gifts found
+              : searchSubmitted && (
+                  <li className="text-red-500 text-lg">No gifts found</li>
                 )}
           </ul>
         </div>
