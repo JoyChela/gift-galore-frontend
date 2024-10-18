@@ -52,7 +52,7 @@ const GiftCard = ({ addToCart }) => {
       setFilteredGifts(giftCards);
     } else {
       const filtered = giftCards.filter((gift) => {
-        const giftOccasion = gift.occasion ? gift.occasion.toLowerCase() : '';
+        const giftOccasion = gift.occasion ? (typeof gift.occasion === 'string' ? gift.occasion.toLowerCase() : gift.occasion.name.toLowerCase()) : '';
         return giftOccasion === occasion.toLowerCase();
       });
       setFilteredGifts(filtered);
@@ -91,7 +91,7 @@ const GiftCard = ({ addToCart }) => {
               <h3 className="text-lg font-semibold mb-2 text-black">{gift.name}</h3>
               <p className="text-black mb-2">{gift.description}</p>
               <p className="text-black mb-2">
-                <strong>Occasion:</strong> {gift.occasion ? gift.occasion.name : 'General'}
+                <strong>Occasion:</strong> {gift.occasion ? (typeof gift.occasion === 'string' ? gift.occasion : gift.occasion.name) : 'General'}
               </p>
               <p className="text-xl font-bold text-black">${gift.price}</p>
               <button

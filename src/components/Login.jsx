@@ -20,7 +20,11 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
+        
+        // Store the token and user info in local storage
         localStorage.setItem('token', data.token); // Store the token
+        localStorage.setItem('user', JSON.stringify(data.user)); // Store user details
+
         toast.success('Login successful!');
         navigate('/'); // Redirect to home page
       } else {
