@@ -1,4 +1,4 @@
-src/components/CheckoutAndPayment.js
+// src/components/CheckoutAndPayment.js
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -63,3 +63,42 @@ const CheckoutAndPayment = ({ cartItems }) => {
           className="border border-gray-300 p-2 mb-2 w-full"
           required
         />
+        <input
+          type="text"
+          name="city"
+          placeholder="City"
+          value={address.city}
+          onChange={handleInputChange}
+          className="border border-gray-300 p-2 mb-2 w-full"
+          required
+        />
+        <input
+          type="text"
+          name="state"
+          placeholder="State"
+          value={address.state}
+          onChange={handleInputChange}
+          className="border border-gray-300 p-2 mb-2 w-full"
+          required
+        />
+        <input
+          type="text"
+          name="zip"
+          placeholder="Zip Code"
+          value={address.zip}
+          onChange={handleInputChange}
+          className="border border-gray-300 p-2 mb-4 w-full"
+          required
+        />
+        
+        {/* Payment form fields can go here if needed */}
+        
+        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">
+          Pay Now
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default CheckoutAndPayment;
