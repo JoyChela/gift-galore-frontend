@@ -49,3 +49,45 @@ const SignUp = () => {
       }
     },
   });
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold text-center">Sign Up</h2>
+        <form onSubmit={formik.handleSubmit} className="mt-4">
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">Username:</label>
+            <input
+              type="text"
+              id="username"
+              {...formik.getFieldProps('username')}
+              className={mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.username && formik.errors.username ? 'border-red-500' : ''}}
+            />
+            {/* Custom error handling */}
+            {formik.touched.username && formik.errors.username && (
+              <p className="text-red-500 text-sm">{formik.errors.username}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">Email:</label>
+            <input
+              type="email"
+              id="email"
+              {...formik.getFieldProps('email')}
+              className={mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.email && formik.errors.email ? 'border-red-500' : ''}}
+            />
+            {/* Custom error handling */}
+            {formik.touched.email && formik.errors.email && (
+              <p className="text-red-500 text-sm">{formik.errors.email}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">Password:</label>
+            <input
+              type="password"
+              id="password"
+              {...formik.getFieldProps('password')}
+              className={mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.password && formik.errors.password ? 'border-red-500' : ''}}
+            />
+            {/* Custom error handling */}
+            {formik.touched.pas…
