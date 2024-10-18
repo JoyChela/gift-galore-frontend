@@ -62,4 +62,4 @@ const CheckoutAndPayment = ({ cartItems }) => {
           onChange={handleInputChange}
           className="border border-gray-300 p-2 mb-2 w-full"
           required
-        /> 
+        />
