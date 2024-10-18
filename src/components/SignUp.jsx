@@ -61,9 +61,8 @@ const SignUp = () => {
               type="text"
               id="username"
               {...formik.getFieldProps('username')}
-              className={mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.username && formik.errors.username ? 'border-red-500' : ''}}
+              className={`mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.username && formik.errors.username ? 'border-red-500' : ''}`}
             />
-            {/* Custom error handling */}
             {formik.touched.username && formik.errors.username && (
               <p className="text-red-500 text-sm">{formik.errors.username}</p>
             )}
@@ -74,9 +73,8 @@ const SignUp = () => {
               type="email"
               id="email"
               {...formik.getFieldProps('email')}
-              className={mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.email && formik.errors.email ? 'border-red-500' : ''}}
+              className={`mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.email && formik.errors.email ? 'border-red-500' : ''}`}
             />
-            {/* Custom error handling */}
             {formik.touched.email && formik.errors.email && (
               <p className="text-red-500 text-sm">{formik.errors.email}</p>
             )}
@@ -87,7 +85,34 @@ const SignUp = () => {
               type="password"
               id="password"
               {...formik.getFieldProps('password')}
-              className={mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.password && formik.errors.password ? 'border-red-500' : ''}}
+              className={`mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.password && formik.errors.password ? 'border-red-500' : ''}`}
             />
-            {/* Custom error handling */}
-            {formik.touched.pas…
+            {formik.touched.password && formik.errors.password && (
+              <p className="text-red-500 text-sm">{formik.errors.password}</p>
+            )}
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700">Password Verification:</label>
+            <input
+              type="password"
+              id="passwordVerify"
+              {...formik.getFieldProps('passwordVerify')}
+              className={`mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.passwordVerify && formik.errors.passwordVerify ? 'border-red-500' : ''}`}
+            />
+            {formik.touched.passwordVerify && formik.errors.passwordVerify && (
+              <p className="text-red-500 text-sm">{formik.errors.passwordVerify}</p>
+            )}
+          </div>
+          <button type="submit" className="w-full py-2 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700">
+            Sign Up
+          </button>
+        </form>
+        <p className="mt-4 text-center">
+          Already have an account? <Link to="/login" className="text-blue-600 hover:underline">Login</Link>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default SignUp;
