@@ -63,7 +63,6 @@ const SignUp = () => {
               {...formik.getFieldProps('username')}
               className={`mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.username && formik.errors.username ? 'border-red-500' : ''}`}
             />
-            {/* Custom error handling */}
             {formik.touched.username && formik.errors.username && (
               <p className="text-red-500 text-sm">{formik.errors.username}</p>
             )}
@@ -76,7 +75,6 @@ const SignUp = () => {
               {...formik.getFieldProps('email')}
               className={`mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.email && formik.errors.email ? 'border-red-500' : ''}`}
             />
-            {/* Custom error handling */}
             {formik.touched.email && formik.errors.email && (
               <p className="text-red-500 text-sm">{formik.errors.email}</p>
             )}
@@ -89,7 +87,6 @@ const SignUp = () => {
               {...formik.getFieldProps('password')}
               className={`mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.password && formik.errors.password ? 'border-red-500' : ''}`}
             />
-            {/* Custom error handling */}
             {formik.touched.password && formik.errors.password && (
               <p className="text-red-500 text-sm">{formik.errors.password}</p>
             )}
@@ -102,7 +99,6 @@ const SignUp = () => {
               {...formik.getFieldProps('passwordVerify')}
               className={`mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-200 ${formik.touched.passwordVerify && formik.errors.passwordVerify ? 'border-red-500' : ''}`}
             />
-            {/* Custom error handling */}
             {formik.touched.passwordVerify && formik.errors.passwordVerify && (
               <p className="text-red-500 text-sm">{formik.errors.passwordVerify}</p>
             )}
